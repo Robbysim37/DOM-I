@@ -38,5 +38,60 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
     "accent-img": "http://localhost:9000/img/accent.png",
   },
 };
+let navAnchorList = document.querySelectorAll("nav a")
+let footerAnchor = document.querySelector("footer a")
 
+let logo = document.querySelector("#logo-img")
+let ctaImage = document.querySelector("#cta-img")
+let middleCodeSnippet = document.querySelector("#middle-img")
+
+let firstSection = document.querySelector(".cta .cta-text")
+let mainContent = document.querySelector(".main-content")
+let contactSection = document.querySelector(".contact")
+
+
+//Header Elements
+navAnchorList.forEach((el,i) => {
+  el.classList.add("italic")
+  el.textContent = siteContent.nav[`nav-item-${i + 1}`]
+})
+
+//Image Elements
+logo.setAttribute("src",siteContent.images["logo-img"])
+ctaImage.setAttribute("src",siteContent.images["cta-img"])
+middleCodeSnippet.setAttribute("src",siteContent.images["accent-img"])
+
+//First Section Elements
+firstSection.children[0].textContent = siteContent.cta.h1
+firstSection.children[1].textContent = siteContent.cta.button
+
+//Main Content Features
+mainContent.querySelector(".top-content").querySelectorAll(".text-content")[0].children[0].textContent = siteContent["main-content"]["features-h4"]
+mainContent.querySelector(".top-content").querySelectorAll(".text-content")[0].children[1].textContent = siteContent["main-content"]["features-content"]
+
+//Main Content About
+mainContent.querySelector(".top-content").querySelectorAll(".text-content")[1].children[0].textContent = siteContent["main-content"]["about-h4"]
+mainContent.querySelector(".top-content").querySelectorAll(".text-content")[1].children[1].textContent = siteContent["main-content"]["about-content"]
+
+//Main Content Services
+mainContent.querySelector(".bottom-content").querySelectorAll(".text-content")[0].children[0].textContent = siteContent["main-content"]["services-h4"]
+mainContent.querySelector(".bottom-content").querySelectorAll(".text-content")[0].children[1].textContent = siteContent["main-content"]["services-content"]
+
+//Main Content Product
+mainContent.querySelector(".bottom-content").querySelectorAll(".text-content")[1].children[0].textContent = siteContent["main-content"]["product-h4"]
+mainContent.querySelector(".bottom-content").querySelectorAll(".text-content")[1].children[1].textContent = siteContent["main-content"]["product-content"]
+
+//Main Vision Product
+mainContent.querySelector(".bottom-content").querySelectorAll(".text-content")[2].children[0].textContent = siteContent["main-content"]["vision-h4"]
+mainContent.querySelector(".bottom-content").querySelectorAll(".text-content")[2].children[1].textContent = siteContent["main-content"]["vision-content"]
+
+//Contact Elements
+contactSection.querySelector("h4").textContent = siteContent.contact["contact-h4"]
+contactSection.querySelectorAll("p")[0].textContent = siteContent.contact["address"]
+contactSection.querySelectorAll("p")[1].textContent = siteContent.contact["phone"]
+contactSection.querySelectorAll("p")[2].textContent = siteContent.contact["email"]
+
+//Footer Element
+footerAnchor.classList.add("bold")
+footerAnchor.textContent = siteContent.footer.copyright
 console.log('project wired!')
